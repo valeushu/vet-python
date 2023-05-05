@@ -1,0 +1,30 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi app veterinaria</title>
+   
+</head>
+<body>
+    <header>
+        <h1>Proyecto Veterinaria</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'lista_clientes' %}">Clientes</a></li>
+               
+             
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        © 2023 veterinaria. Todos los derechos reservados.
+    </footer>
+</body>
+</html>
