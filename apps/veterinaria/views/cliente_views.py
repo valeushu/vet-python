@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from ..models.Clientes import Cliente
 from ..forms.ClienteForm import ClienteForm
+from django.contrib.auth.forms import UserCreationForm
 
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -19,10 +20,21 @@ def cliente_editar(request, id):
         if form.is_valid():
             cliente = form.save(commit=False)
             cliente.save()
-            return redirect('lista_clientes')
+            return redirect('cliente/lista_clientes')
     else:
         form = ClienteForm(instance=cliente)
     return render(request, 'cliente/editar.html', {'form': form})
+
+
+def home(request):
+    return render(request, 'cliente/home.html')
+
+
+def signup(request):
+
+    return render(request, 'cliente/signup.html', {
+        'form': UserCreationForm
+    })
 
 
 def prueba(request):
